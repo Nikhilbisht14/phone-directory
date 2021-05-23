@@ -3,6 +3,11 @@ import Header from './Header';
 import './App.css';
 
 class App extends Component {
+
+  clickHandler(message){
+    alert(message);
+  }
+
   render() {
     let subscribers = [
       {
@@ -18,7 +23,7 @@ class App extends Component {
     ];
     return (
       <div className="component-container">
-        <Header heading="Phone Directory"/>
+        <Header heading="Phone Directory"/> {/* Props -- Parent Element */}
         <div className="component-body-container">
           <button className="custom-btn add-btn">Add</button>
           <div className="grid-container heading-container">
@@ -32,7 +37,7 @@ class App extends Component {
                 <span className="grid-item">{sub.name}</span>
                 <span className="grid-item">{sub.phone}</span>
                 <span className="grid-item action-btn-container">
-                  <button className="custom-btn delete-btn">Delete</button>
+                  <button className="custom-btn delete-btn" onClick={this.clickHandler.bind(this, "Delete")}>Delete</button>
                 </span>
               </div>
             })
