@@ -43,6 +43,11 @@ class ShowSubscribers extends Component {
   //   this.setState({subscribersListToShow: subscriberList});
   // }
 
+
+  onDeletedClick = (subscriberId) => {
+    this.props.deleteSubscriberHandler(subscriberId);
+  }
+
   render() {
     return (
       <div className="component-container">
@@ -60,7 +65,7 @@ class ShowSubscribers extends Component {
                 <span className="grid-item">{sub.name}</span>
                 <span className="grid-item">{sub.phone}</span>
                 <span className="grid-item action-btn-container">
-                  <button className="custom-btn delete-btn" /*span>onClick={this.clickHandler.bind(this, "Delete")}*/>Delete</button>
+                  <button className="custom-btn delete-btn" onClick={this.onDeletedClick.bind(this, sub.id)} /*span>onClick={this.clickHandler.bind(this, "Delete")}*/>Delete</button>
                 </span>
               </div>
             })
